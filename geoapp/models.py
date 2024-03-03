@@ -1,15 +1,28 @@
 from django.db import models
+# from django.contrib.gis.db import models as geo_model
 # from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import User, Group
 from django.dispatch import receiver
 from django.utils import timezone
+
+# class Location(geo_model.Model):
+#     name = models.CharField(max_length=100)
+#     coordinates = models.PointField() # to store geographic coordinates
+
+# class Area(geo_model.Model):
+#     name = models.CharField(max_length=100)
+#     boundary = models.PolygonField() # to store geographic boundaries
+
+# class Route(geo_model.Model):
+#     name = models.CharField(max_length=100)
+#     path = models.LineStringField() # to store geographic paths/routes
 
 class geo_locations(models.Model):
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
     code = models.IntegerField(blank=True, null=True)
     foglio = models.TextField(blank=True, null=True)
-    p4 = models.TextField(blank=True, null=True)
+    particella = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     created_on = models.DateTimeField(default=timezone.now)
     modified_on = models.DateTimeField(default=timezone.now)
